@@ -79,7 +79,7 @@ export default function Add(props) {
       <Input onChange={(e)=>handle(e)} value={data.type} id="url" name="type" type ="text" />
       <Submit type="submit" value="CRIE SEU PRODUTO" />
     </form>
-    <Button onClick = {saveAllProducts}>Ou cadestre todos de uma só vez.</Button>
+    <Button onClick = {saveAllProducts}>Ou cadastre todos de uma só vez.</Button>
   </div>
     );
 }

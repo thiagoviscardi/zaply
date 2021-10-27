@@ -1,16 +1,14 @@
 import React, { useEffect, useState }  from "react";
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
-import {Input, Label, Submit, Button} from './style.js';
+import {Input, Label, Button} from './style.js';
 import zaplyImg from '../../images/tecnologiaZaply3.jpg';
+import { useToasts } from 'react-toast-notifications';
 
 
 export default function Info(props) {
-  
+  const { addToast } = useToasts();
   const [previousId, setPreviousId] = useState();
-  //  console.log(previousId, '>>>> ids')// renderiza em alguma vez e depois nao acha o idEdit. dando erro aqui
-  // console.log(props.location.state.idEdit.idEditar);
-  // setPreviousId(props.location.state.idEdit.idEditar);
  
   const history = useHistory();
   const [data, setData] = useState({
@@ -26,7 +24,13 @@ export default function Info(props) {
   }
 
 
-const edit = async () => {   
+const edit = async () => {  
+  if(!previousId) {
+    addToast('Digite algo no campo para editar', {
+    appearance: 'warning',
+  });
+  return;
+  }
 console.log(previousId, 'previousIdpreviousIdpreviousIdpreviousId')
   const response = await axios.put(`http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon/${previousId}`,
   {name:data.name, type:data.type})
