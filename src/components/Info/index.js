@@ -13,7 +13,8 @@ export default function Info(props) {
   const history = useHistory();
   const [data, setData] = useState({
     name:"",
-    type:""
+    type:"",
+    histories:"",
   });
 
   function handle(e){
@@ -31,9 +32,8 @@ const edit = async () => {
   });
   return;
   }
-console.log(previousId, 'previousIdpreviousIdpreviousIdpreviousId')
   const response = await axios.put(`http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon/${previousId}`,
-  {name:data.name, type:data.type})
+  {name:data.name, type:data.type, histories:data.histories})
   .then((res=>{
    history.push('/list');
    window.location.reload();
@@ -50,6 +50,8 @@ console.log(previousId, 'previousIdpreviousIdpreviousIdpreviousId')
     <form onSubmit={(e)=>edit(previousId)}>
       <Label for="name">Nome:</Label>
       <Input onChange={(e)=>handle(e)} value={data.name} id="name" name="name" type ="text" />
+      <Label for="histories">Categoria:</Label>
+      <Input onChange={(e)=>handle(e)} value={data.histories} id="histories" name="histories" type ="text" />
       <Label for="type">Nova url de imagem:</Label>
       <Input onChange={(e)=>handle(e)} value={data.type} id="type" name="type" type ="text" />
     </form>

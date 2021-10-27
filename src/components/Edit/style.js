@@ -9,3 +9,13 @@ export const ProdContainer = styled.div`
   color:#000;
   text-align:left;
 `;
+
+export const EditButton = styled.button`
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+  text-align:center;
+  margin:0 auto;
+  background-color: #ccc;
+`;

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
+import { DeleteButton } from './style';
 
 export default function Delete(props) {
   const history = useHistory();
@@ -15,7 +16,7 @@ function productsDelete(props){
 }
   return (
   <div>
-    <button onClick={productsDelete}>Deleta Produto</button>
+    <DeleteButton onClick={productsDelete}>Deleta Produto</DeleteButton>
   </div>
     );
 }

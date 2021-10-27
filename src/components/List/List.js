@@ -1,8 +1,6 @@
 import React, { useEffect, useState }  from "react";
 import axios from 'axios';
-import {ProdContainer, Table, Column} from './style.js';
-import Delete from '../Delete/index.js';
-import Edit from '../Edit/index.js';
+import {ProdContainer, Table, Column, DeleteButton, EditButton} from './style.js';
 
 export default function List() {
   const [lista, setLista] = useState([]);
@@ -15,7 +13,6 @@ export default function List() {
                 setLista(res.data)
             }))  
   }, [])
-// lista
 function list(){
   if(lista && lista[0] && lista[0].name){
 
@@ -27,18 +24,18 @@ function list(){
         <div>
           <Table>
             <tr>
-              <Column width="40%" bColor="#ccc">Nome:</Column>
+              <Column width="20%" bColor="#ccc">Nome:</Column>
               <Column width="20%" bColor="#ccc">Data de cadastro:</Column>
               <Column width="20%" bColor="#ccc">Categoria:</Column>
-             
               <Column width="20%" bColor="#ccc">Imagem:</Column>
+              <Column width="20%" bColor="#ccc">Ações:</Column>
             </tr>
             <tr>
               <Column width="20%">{item.name}</Column>
               <Column width="20%">{item.createdAt}</Column>
               <Column width="20%">{item.histories}</Column>
-              <img style={{width:'100px'}} alt="imagem" src={item.type} />
-              <Column width="20%"><Delete id = {item.id}/><Edit id = {item.id} /></Column>
+              <Column width="20%"><img style={{width:'100%'}} alt="imagem" src={item.type} /></Column>
+              <Column width="20%"><DeleteButton id = {item.id}/><EditButton id = {item.id} /></Column>
             </tr>
           </Table> 
         </div>

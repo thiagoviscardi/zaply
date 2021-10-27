@@ -4,8 +4,10 @@ import {useHistory} from 'react-router-dom';
 import {Input, Label, Submit, Button} from './style.js';
 import zaplyImg from '../../images/tecnologiaZaply3.jpg';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { useToasts } from 'react-toast-notifications';
 
 export default function Add(props) {
+  const { addToast } = useToasts();
   const [loading, setLoading] = useState(null);
   const history = useHistory();
   const [data, setData] = useState({
@@ -22,13 +24,24 @@ export default function Add(props) {
 
 
   function add(e){   
+    if(!data.name) {
+      addToast('Digite pelo menos o nome para cadastrar ', {
+      appearance: 'warning',
+    });
+    return;
+    }
     e.preventDefault();
     axios.post(`http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon/`, 
     {name:data.name, type:data.type, histories:data.histories})
       .then((res=>{
         history.push('/list');
       }
-    ))
+    )).then(()=>{
+        addToast('Item cadastrado com sucesso ', {
+        appearance: 'success',
+      });
+    }
+    )
   } 
   
 
@@ -57,7 +70,12 @@ export default function Add(props) {
               setLoading(1);
             })
       });
-
+      addToast('Itens sendo cadastrados, por favor favor aguarde... ', {
+        appearance: 'success',
+      });
+      setTimeout(() => {
+        history.push('/list');
+      }, 13000);
       } catch (error) {
         console.log(error);
       }
