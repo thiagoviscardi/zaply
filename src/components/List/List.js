@@ -28,9 +28,9 @@ function list(){
           <Table>
             <tr>
               <Column width="40%" bColor="#ccc">Nome:</Column>
-              <Column width="20%" bColor="#ccc">Preço:</Column>
+              <Column width="20%" bColor="#ccc">Data de cadastro:</Column>
               <Column width="20%" bColor="#ccc">Categoria:</Column>
-              {/* <Column width="20%" bColor="#ccc">Categoria:</Column> */}
+             
               <Column width="20%" bColor="#ccc">Imagem:</Column>
             </tr>
             <tr>
