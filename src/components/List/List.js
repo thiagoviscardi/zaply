@@ -15,7 +15,7 @@ export default function List() {
                 setLista(res.data)
             }))  
   }, [])
-
+// lista
 function list(){
   if(lista && lista[0] && lista[0].name){
 
