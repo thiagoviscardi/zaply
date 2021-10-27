@@ -20,7 +20,7 @@ function list(){
   if(lista && lista[0] && lista[0].name){
 
     const filtredList = lista.filter((lista) => lista.name.startsWith(busca));
-    console.log(filtredList, 'filtredList');
+    
 
     return(
       filtredList.map(item=>(
@@ -48,7 +48,6 @@ function list(){
   return <></>
   
 }
-console.log(busca);
   return (
   <ProdContainer>
     <h1>Lista de Produtos</h1>

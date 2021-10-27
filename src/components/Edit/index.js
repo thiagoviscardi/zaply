@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 export default function Edit(props) {
   const { id } = props;
-
+  
   return (
     <div>
       <button type="submit">

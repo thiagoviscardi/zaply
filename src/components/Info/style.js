@@ -39,6 +39,15 @@ export const Submit = styled.input`
     font-size: 15px;
 `;
 
-
+export const Button = styled.button`
+        width: 20%;
+    height: 40px;
+    margin-top: 20px;
+    background-color: #000;
+    color: red;
+    font-weight: bold;
+    border-radius: 10px;
+    font-size: 15px;
+`;
 
 
